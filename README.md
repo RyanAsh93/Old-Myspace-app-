@@ -1,24 +1,27 @@
-# README
+Instructions
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+clone/git
 
-Things you may want to cover:
+git clone git@github.com:RyanAsh93/starter-setup.git <ProjectName>
+remove origin
+cd into project
+git remote rm origin
+create a new repo and add new origin
+git add remote origin <ulr>
 
-* Ruby version
+Rails
 
-* System dependencies
+cd <ProjectName>
+run bundle
+in config/database yml replace database name to something else
+in this case that would be starter_setup_...
+rails db:create db:migrate db:seed
+rails s -p 3001
+check this route http://localhost:3001 
 
-* Configuration
+React
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+cd <ProjectName>/client
+run yarn
+run yarn start
+open http://localhost:3000 (make sure rails is on port 3001)

@@ -2,7 +2,7 @@ import React from 'react'
 import { Header } from 'semantic-ui-react'
 
 const Home = () => (
-  <Header as='h1' textAlign='center'>Starter-App Home Page</Header>
+  <Header as='h1' color='blue' textAlign='center'>Myspace</Header>
 )
 
 export default Home;
