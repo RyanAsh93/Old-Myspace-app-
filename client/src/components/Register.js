@@ -1,35 +1,35 @@
-import React from 'react'
-import { AuthConsumer } from '../providers/AuthProvider'
-import { Button, Form, Segment, Header } from 'semantic-ui-react'
+import React from 'react';
+import { AuthConsumer, } from "../providers/AuthProvider";
+import { Button, Form, Segment, Header, } from 'semantic-ui-react';
 
 class Register extends React.Component {
-  state = { email: '', password: '', passwordConfirmation: '' };
-
+  state = { email: '', password: '', passwordConfirmation: '', };
+  
   handleSubmit = (e) => {
     e.preventDefault();
     const { email, password, passwordConfirmation } = this.state;
-    const { auth: { handleRegister }, history } = this.props;
+    const { auth: { handleRegister, }, history, } = this.props;
 
     if (password === passwordConfirmation)
-      handleRegister({ email, password, passwordConfirmation }, history )
-      else 
-        alert('Passwords Do Not Match')
+      handleRegister({ email, password, passwordConfirmation, }, history);
+    else
+      alert('Passwords Do Not Match!')
   }
-
+  
   handleChange = (e) => {
-    const { name, value } = e.target
-    this.setState({ [name]: value })
+    const { name, value, } = e.target;
+    this.setState({ [name]: value, });
   }
-
+  
   render() {
-    const { email, password, passwordConfirmation } = this.state
-
+    const { email, password, passwordConfirmation, } = this.state;
+    
     return (
       <Segment basic>
         <Header as='h1' textAlign='center'>Register</Header>
         <Form onSubmit={this.handleSubmit}>
-          <Form.Input 
-            label="email"
+          <Form.Input
+            label="Email"
             required
             autoFocus
             name='email'
@@ -37,8 +37,8 @@ class Register extends React.Component {
             placeholder='Email'
             onChange={this.handleChange}
           />
-          <Form.Input 
-            label="password"
+          <Form.Input
+            label="Password"
             required
             name='password'
             value={password}
@@ -46,8 +46,8 @@ class Register extends React.Component {
             type='password'
             onChange={this.handleChange}
           />
-          <Form.Input 
-            label="password Confirmation"
+          <Form.Input
+            label="Password Confirmation"
             required
             name='passwordConfirmation'
             value={passwordConfirmation}
@@ -68,7 +68,7 @@ export default class ConnectedRegister extends React.Component {
   render() {
     return (
       <AuthConsumer>
-        { auth => <Register { ...this.props } auth={auth} />}
+        { auth => <Register { ...this.props } auth={auth} /> }
       </AuthConsumer>
     )
   }
